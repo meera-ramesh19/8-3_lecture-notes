@@ -144,3 +144,19 @@ const exponential = calculatorValidator(3, 7, function (a, b) {
 });
 
 // console.log(exponential);
+transform("hello", function (text) {
+  return text.toUpperCase()
+});
+
+transform("hello", function (text) {
+  return text.toLowerCase()
+});
+
+transform("hello left right", function (text) {
+  return text.split(" ").join("-");
+});
+
+
+transform("up Down left", function (text){
+  return text.split('').map((ele) => ele[0].toUpperCase()).join("");
+})
