@@ -3,19 +3,24 @@
  */
 
 
+
+
 /**
  * 2. Use destructuring to create three new variables from the following array.
  */
-// const astronauts = ["Jessica Watkins",[ "Robert Shane"], "Nicole Mann"];
+
 
 // /**
 //  * 3. Use destructuring to create three new variables that represent each key-value pair in the following object.
-//  */
-// const astronaut = {
-//   name: "Jessica Watkins",
-//   isActive: true,
-//   occupation: "Geologist",
-// };
+ 
+const astronaut = {
+  name: "Jessica Watkins",
+  isActive: true,
+  occupation: "Geologist",
+};
+
+
+
 
 
 
@@ -27,6 +32,7 @@
  * 5. Apply destructuring to the following function.
  */
 
+
   function getAstronautActivityStatus({isActive,name}) {
   
   let result = "";
@@ -36,9 +42,13 @@
   } else {
     result = `${astronaut.name} is not active.`;
    
+
+
+
   }
   return result;
 }
+
 
 const astronaut = {
   name: "Jessica Watkins",
@@ -47,5 +57,6 @@ const astronaut = {
 };
 console.log(getAstronautActivityStatus(astronaut))
 console.log(getAstronautActivityStatus())
+
 getAstronautActivityStatus(astronaut); //> "Jessica Watkins is active."
 
