@@ -43,7 +43,7 @@ console.log(greet2()); //> "Welcome to NASA, space cadet!"
 /**
  * 3. Are there any benefits to using the arrow function syntax? Are there any limitations? Write a brief response below.
  */
-<<<<<<< HEAD
+
 //BENEFITS 
 //concise
 //potentially more readability
@@ -61,7 +61,7 @@ console.log(greet2()); //> "Welcome to NASA, space cadet!"
 
 //phase 1-for arrow functions this is ignored
 //phase 2 -executed so there is not memory of the function name and variable. 
-=======
+
 
 // concise
 // potentially more readable
@@ -70,4 +70,4 @@ console.log(greet2()); //> "Welcome to NASA, space cadet!"
 // BUT
 
 // arrow functions aren't hoisted
->>>>>>> beaf787b4274c1cdb24dc243b013e713d077e8b2
+
