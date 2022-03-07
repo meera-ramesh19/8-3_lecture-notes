@@ -3,7 +3,7 @@
 //accepts function as parameter
 //how anonymous function useful in higher order function
 //common programming pattern,endlessly useful for devs
-
+//HELps in writing declarative code
 //Why do HIGHER ORDER exist?
 //    useful for passing information around in a dynamic/modular way
 // ex. typical function

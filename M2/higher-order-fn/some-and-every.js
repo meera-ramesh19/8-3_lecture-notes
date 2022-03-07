@@ -149,14 +149,20 @@ console.log("exampleNums has an odd element:", some(exampleNums, isOdd));
 /**
  * 3A. Your turn! Use some() to answer the question: Is there any element of exampleNums that is even?
  */
-
-console.log("exampleNums has an even element:");
-
+const isEven = (n) => n % 2 === 0;
+console.log("exampleNums has an even element:", some(exampleNums, isEven));
+console.log("exampleNums has an even element:", some(exampleNums, (n) => n % 2 === 0;);
 /**
  * 3B. Use some() to answer the question: Is there any element of exampleNums that is larger than 50?
  */
+ const isLarger = (n) => n > 50;
+console.log("exampleNums has an element that is larger than 50: ", some(exampleNums, isLarger);
 
-console.log("exampleNums has an element that is larger than 50:");
+//does [1,2,3,4] have an element leas than -1 or does [1,2,3,4] have an element greater than 4?
+console.log("any", some([1,2,3,4], (n)=> n< -1) || some([1,2,3,4], (n)=> n< -1));
+
+//Does [1,2,3,4,5] have an element  that is either less than -1 or greater than 4?
+console.log("any", some([1,2,3,4], (n)=> (n < -1 || n > 4)) )
 
 /**
  * ##################################
@@ -174,7 +180,14 @@ console.log("exampleNums has an element that is larger than 50:");
  */
 console.log("\n############# 4. everyElementBelow50 #############\n");
 
-const everyElementBelow50 = (nums) => {};
+const everyElementBelow50 = (nums) => {
+ for(let n of nums){
+   if(!(n < 50)){
+     return false
+   }
+   return true
+ }
+};
 
 console.log(
   "Every element of exampleNums is below 50:",
@@ -202,7 +215,23 @@ console.log(
  * @returns {Boolean} - tells us if every element of the input array passes the input test
  */
 console.log("\n############# 5. EVERY #############\n");
-const every = (array, test) => {};
+//general way of writing every callback
+const every = (array, test) => {
+  for(let n of array){
+    if(!test(n)){
+      return false
+    }
+  }
+  return true
+  // not a clean code as the above
+  // for(let n of array){
+  //   if(test(n)){
+  //     continue
+  //   }
+    
+  // }
+  // return false
+};
 
 console.log("Every element of exampleNums is odd:", every(exampleNums, isOdd));
 console.log(

@@ -95,7 +95,7 @@ console.log(transform("hello", function (text) {
 
 console.log(transform("hello", function (text) {
   return text.toLowerCase();
-})
+}),
 );
 
 
@@ -103,7 +103,7 @@ console.log(transform("hello left right", function (text) {
   const textArr=  text.split(" ")
   textArr.join("-");
   return textArr
-});
+}),
 );
 
 
