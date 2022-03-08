@@ -1,4 +1,43 @@
 /**
+ * Array.find(fn) <-- higher order since it takes a fn parameter
+ *
+ * Side Effect: DO NOT use .find for side effects
+ *
+ * Return Value: returns either a value, or undefined
+ *
+ * The find() method returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.
+ *
+ * Further reading: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+ */
+
+const array1 = [5, 12, 8, 130, 44];
+
+const found = array1.find((element) => element > 10);
+
+// console.log(found); // expected output: 12
+
+let fans = [
+  {
+    name: "georgia",
+    age: 12,
+  },
+  {
+    name: "kyle",
+    age: 32,
+  },
+  {
+    name: "Demitrius",
+    age: 21,
+  },
+];
+
+let legalFans = fans.find(function (fan) {
+  return fan.age > 18;
+});
+
+console.log(legalFans);
+
+/**
  * Array.find()
  *
  * The find() method returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.
@@ -19,7 +58,7 @@ console.log(found); // expected output: 12
  */
 
 function getJoshuaBarkmanComic(comic) {
-  return comic.author === 'Joshua Barkman';
+  return comic.author === "Joshua Barkman";
 }
 
 const filterResult = comics.filter(getJoshuaBarkmanComic);
@@ -38,7 +77,7 @@ console.log(findResult);
  */
 
 function isPrintComic1(comic) {
-  return comic.kind === 'print';
+  return comic.kind === "print";
 }
 
 const isPrintComic1Result = comics.find(isPrintComic1);
