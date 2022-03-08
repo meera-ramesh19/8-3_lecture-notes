@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // let soccerTeams =[
 //   'MAnchester United',
 //   'Real Madrid',
@@ -33,6 +34,8 @@
 //   //soccerTeamsV2.push(teamObj)
 //   soccerTeamsV2[index].fanMessage=printTeamSupport(team)
 // })
+=======
+>>>>>>> f53284fda44fef2e934593be9725eddafb997b8c
 /**
  * Array.map(fn) <-- higher order since it takes a fn parameter
  *
@@ -44,10 +47,17 @@
  */
 
 let soccerTeams = [
+<<<<<<< HEAD
   "Manchester United",
   "Real Madrid",
   "Boca Juniors",
   "NYC FC",
+=======
+  'Manchester United',
+  'Real Madrid',
+  'Boca Juniors',
+  'NYC FC',
+>>>>>>> f53284fda44fef2e934593be9725eddafb997b8c
 ];
 
 function printTeamSupport(team) {
@@ -60,7 +70,11 @@ console.log(
   soccerTeams.map(function (team) {
     // canProduceSideEffects.push('yes'); // DO NOT DO THIS
     return { name: team, fanMessage: printTeamSupport(team) }; // Rely on the return value to transform arrays
+<<<<<<< HEAD
   })
+=======
+  }),
+>>>>>>> f53284fda44fef2e934593be9725eddafb997b8c
 );
 
 // console.log(teamObjs);

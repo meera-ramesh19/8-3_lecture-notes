@@ -4,6 +4,7 @@
  * Side Effect: DO NOT use .find for side effects
  *
  * Return Value: returns either a value, or undefined
+<<<<<<< HEAD
  *
  * The find() method returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.
  *
@@ -39,6 +40,8 @@ console.log(legalFans);
 
 /**
  * Array.find()
+=======
+>>>>>>> f53284fda44fef2e934593be9725eddafb997b8c
  *
  * The find() method returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.
  *
@@ -49,7 +52,36 @@ const array1 = [5, 12, 8, 130, 44];
 
 const found = array1.find((element) => element > 10);
 
-console.log(found); // expected output: 12
+// console.log(found); // expected output: 12
+
+let fans = [
+  {
+    name: 'georgia',
+    age: 12,
+  },
+  {
+    name: 'kyle',
+    age: 32,
+  },
+  {
+    name: 'Demitrius',
+    age: 21,
+  },
+];
+
+let legalFans = fans.find(function (fan) {
+  return fan.age > 18;
+});
+
+console.log(legalFans);
+
+// do not edit the comics object
+const comics = [
+  { title: 'Calvin & Hobbes', author: 'Bill Watterson', kind: 'print' },
+  { title: 'Zen Pencils', author: 'Gavin Aung Than', kind: 'web' },
+  { title: 'Nancy', author: 'Olivia James', kind: 'print' },
+  { title: 'False Knees', author: 'Joshua Barkman', kind: 'web' },
+];
 
 /**
  * 1

@@ -13,6 +13,7 @@
 
 let fans = [
   {
+<<<<<<< HEAD
     name: "georgia",
     age: 12,
   },
@@ -22,6 +23,17 @@ let fans = [
   },
   {
     name: "Demitrius",
+=======
+    name: 'georgia',
+    age: 12,
+  },
+  {
+    name: 'kyle',
+    age: 32,
+  },
+  {
+    name: 'Demitrius',
+>>>>>>> f53284fda44fef2e934593be9725eddafb997b8c
     age: 21,
   },
 ];
