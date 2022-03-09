@@ -10,8 +10,11 @@ const weatherData = require("./weather-data.js");
  * @param {Object[]} forecast
  * @returns {Object[]} - filtered list containing warm days
  */
-function daysWarmerThan50(forecast) {}
+function daysWarmerThan50(forecasts) {
+  return forecasts.filter((forecast) => forecast.highTemp > 50);
+}
 
+console.log(daysWarmerThan50(weatherData));
 /**
  * 2. Get a list of the highs and lows for each day.
  *
@@ -22,8 +25,10 @@ function daysWarmerThan50(forecast) {}
  *
  * tempRanges(weatherData) // => [[38, 50], [33, 41], [34, 49], [44, 52], [28, 49], [34, 41], [44, 56]]
  */
-function tempRanges(forecast) {}
-
+function tempRanges(forecasts) {
+  return forecasts.map((forecast) => [forecast.lowTemp, forecast.highTemp]);
+}
+console.log(tempRanges(weatherData));
 /**
  * 3. Print out a weather summary for every day in the seven day forecast.
  *
@@ -37,13 +42,22 @@ function tempRanges(forecast) {}
  * // => ...
  * // => "Today there is a high of 56 with a 2% chance of rain"
  */
-function logWeatherSummary(forecast) {}
-
+function logWeatherSummary(forecasts) {
+  return forecasts.map(
+    (forecast) =>
+      `Today there is a high of ${forecast.highTemp} with a ${
+        forecast.precipitation.chance * 100
+      }% chance of ${forecast.precipitation.type}`
+  );
+}
+console.log(logWeatherSummary(weatherData));
 /**
  * 4. Find the first day this week that it might snow
  */
-function findSnowDay(forecast) {}
-
+function findSnowDay(forecasts) {
+  return forecasts.find((forecast) => forecast.precipitation.type === "snow");
+}
+console.log(findSnowDay(weatherData));
 /**
  * 5. Get a list of days of the week that the wind will be above 15 mph.
  *
@@ -54,7 +68,39 @@ function findSnowDay(forecast) {}
  *
  * highWindDays(weatherData) // => ["Tuesday", "Saturday", "Sunday"]
  */
-function highWindDays(forecast) {}
+function highWindDays(forecasts) {
+  const isWindy = (days) => days.wind.speed > 15;
+
+  const getDayOfWeek = (days) => {
+    const daysOfWeek = [
+      "Monday",
+      "Tuesday",
+      " Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ];
+    // const daysOfWeek = [
+    //     "Sunday",
+    //     "Monday",
+    //     "Tuesday",
+    //     " Wednesday",
+    //     "Thursday",
+    //     "Friday",
+    //     "Saturday",
+
+    //   ];
+    //   const dates=new Date(days.date)
+    //   return daysOfWeek[getDay(dates)]
+    const daynum = Number(days.date.split("/")[1]) % 7;
+    return daysOfWeek[daynum];
+  };
+
+  let windyArr = forecasts.filter(isWindy).map(getDayOfWeek);
+  return windyArr;
+}
+console.log(highWindDays(weatherData));
 
 /**
  * 6. Print out the low temp for days with less than a 5% chance of precipitation.
@@ -69,8 +115,13 @@ function highWindDays(forecast) {}
  * // => "3/13/2022 has a low of 34"
  * // => "3/14/2022 has a low of 44"
  */
-function logSunnyDayLows(forecast) {}
+function logSunnyDayLows(forecasts) {
+  return forecasts
+    .filter((forecast) => forecast.precipitation.chance < 0.05)
+    .map((weather) => `${weather.date} has a low of ${weather.lowTemp}`);
+}
 
+console.log(logSunnyDayLows(weatherData));
 /**
  * 7. Given the current temparature, find the first day of the week it could plausibly be
  *
@@ -82,4 +133,9 @@ function logSunnyDayLows(forecast) {}
  *
  * findDayByTemp(weatherData, 51) // => "3/11/2022"
  */
-function findDayByTemp(forecast, temperature) {}
+function findDayByTemp(forecasts, temperature) {
+  return forecasts.find((forecast) => forecast.highTemp > temperature);
+}
+
+console.log(findDayByTemp(weatherData, 51));
+//exit the debugger
