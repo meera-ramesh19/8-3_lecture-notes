@@ -1,8 +1,83 @@
 /**
+ * 
+ * Array.reduce() -a higher order native array method
+ * 
+ * Description:
+ * Take an array and using a callback function (anonymous or named), will
+ * apply an accumulation and return a single value. it there are no elements
+ * in the array, the default value will be the second(optional)
+ * argument passed to reduce
+ * 
+ * SideEffects:not recommended
+ * 
+ * Return values:a single value, the acccumulation of the array
+ *
+ *  Mutates teh original array :no
+ * 
+ * all the methods do not modify the array
+ * find returns undefined if no value found and returns true if the first element
+ * 
+ * some stops iterating when the value is found and its return value is true
+ * 
+ * reduce returns a value number or a string as it accumulates, it traverses
+ * through the whole array
+ */
+
+
+
+
+
+
+/**
  * 1
  *
  * Summing all the numbers in an array:
  */
+//accumulator patterns
+//1 result/return default value type
+//2 loop
+//3 accumulate
+
+
+function sum(arr){
+  let res=0
+  for(let i=0;i<arr.length;i++){
+    res+=arr[i]
+  }
+  return res
+}
+const numbers=[1,2,3,4,7,8,9]
+//accumulator pattern+higher order function
+//write a higher order function
+function getArrSum(arr,callback){
+  let res=0//accumulator varaible
+  //handle the loop
+  for(let ele of arr){
+    res=callback(res,ele)//accumulator is updated
+  }
+
+//return the default value and type
+  return res
+}
+
+
+
+//pass in a sum callback function
+function getSum(a,b){
+  //accumulate
+  return a+b
+ }
+
+console.log(getArrSum(numbers, getSum))
+
+//accumulator pattern+reduce native array method
+numbers.reduce((accumulator,currentValue)=>{//step2 of accumulator
+  //pattern abstracted by native array method definition
+  //step3 : accumulation operaion(this is what we handle as devs)
+  return accumulator+currentValue //in the background the accumulator value
+  //is updated to equal this result of this expression
+
+},0)
 
 let arr1 = [1, 2, 3, 4];
 let sum1 = arr1.reduce((acc, el) => {
