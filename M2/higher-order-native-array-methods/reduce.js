@@ -1,5 +1,5 @@
 /**
-<<<<<<< HEAD
+
  * 
  * Array.reduce() -a higher order native array method
  * 
@@ -29,7 +29,7 @@
 
 
 
-=======
+/** 
  * Array.reduce() --> a higher order native array method
  *
  * Description:
@@ -42,7 +42,7 @@
  * Mutates the original array?: NO
  */
 
->>>>>>> 99a87488657b19459f6a7ed5083299d303c5a5e3
+
 /**
  * 1
  *
@@ -61,7 +61,7 @@ function sum(arr){
   }
   return res
 }
-const numbers=[1,2,3,4,7,8,9]
+const numberss=[1,2,3,4,7,8,9]
 //accumulator pattern+higher order function
 //write a higher order function
 function getArrSum(arr,callback){
@@ -224,7 +224,8 @@ let sum3 = arr2.reduce(adder, 5);
 
 function stringConcat(arr) {
   // your code here
-}
+   return arr.reduce((acc,val) => acc+val ,  '')
+  
 
 // console.log(stringConcat([1, 2, 3])); // "123"
 /**
@@ -237,7 +238,11 @@ function stringConcat(arr) {
 
 function totalVotes(arr) {
   // your code here
+  return arr.reduce((acc,{voted})=>{
+      return  voted===true? acc+=1 :acc
+  },0)
 }
+
 
 const voters = [
   { name: 'Bob', age: 30, voted: true },
@@ -263,6 +268,9 @@ const voters = [
 
 function shoppingSpree(arr) {
   // your code here
+   return arr.reduce((acc,obj)=>{
+     return  acc+=obj.price
+   },0)
 }
 
 const wishlist = [
@@ -284,6 +292,7 @@ const wishlist = [
 
 function flatten(arr) {
   // your code here
+  return arr.reduce((a,b)=>  a.concat(b),[])
 }
 
 const arrays = [['1', '2', '3'], [true], [4, 5, 6]];
@@ -295,11 +304,33 @@ const arrays = [['1', '2', '3'], [true], [4, 5, 6]];
  *
  * Given the array of potential voters above, return an object representing the results of the vote
  *
- * Include how many of the potential voters were in the ages 18-25, how many from 26-35, how many from 36-55, and how many of each of those age ranges actually voted. The resulting object containing this data should have 6 properties. See the example output at the bottom.
+ * Include how many of the potential voters were in the ages 18-25, how many from 26-35, how many from 36-55, and how many of each of those age ranges actually voted. 
+ * The resulting object containing this data should have 6 properties. See the example output at the bottom.
  */
+//Mine
+// function voterResults(arr) {
+//   // your code here
+//   //if (acc[cur.name] === undefined || acc[cur.name] === 0) {
+//   let myObj=arr.reduce((acc, cur) => (acc[cur.age] = (acc[cur.age] || 0)+1, acc), {} )
+//   Object.keys(myObj).map((key,index)=>{
+//     let newObj={}
+//   })
+// }
+function voterResults(arr){
+  
+}
 
 function voterResults(arr) {
   // your code here
+  //default return value
+  let res={ numYoungVotes: 0,
+   numYoungPeople:0,
+   numMidVotesPeople: 0,
+   numMidsPeople: 0,
+   numOldVotesPeople: 0,
+   numOldsPeople: 0 
+ }
+
 }
 
 // console.log(voterResults(voters)); // Returned value shown below:
