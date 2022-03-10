@@ -2,7 +2,6 @@
  * Array.filter(fn) <-- higher order because its takes a fn as parameter
  * Traverse the array, returning only the elements who pass a certain condiiton
  * - when we pass the element to the conditional, it evaluates to true
- *
  * 5 --> x > 10 --> false --> 5 DOES NOT get added to the new array
  * 14 --> x > 10 --> true --> 14 DOES get added to the new array
  *
@@ -27,10 +26,7 @@ let fans = [
     name: 'georgia',
     age: 12,
   },
-  {
-    name: 'kyle',
-    age: 32,
-  },
+  { name: 'kyle', age: 32 },
   {
     name: 'Demitrius',
 >>>>>>> f53284fda44fef2e934593be9725eddafb997b8c
@@ -69,10 +65,33 @@ console.log(legalFans);
 
 // do not edit the comics object
 const comics = [
+<<<<<<< HEAD
   { title: "Calvin & Hobbes", author: "Bill Watterson", kind: "print" },
   { title: "Zen Pencils", author: "Gavin Aung Than", kind: "web" },
   { title: "Nancy", author: "Olivia James", kind: "print" },
   { title: "False Knees", author: "Joshua Barkman", kind: "web" },
+=======
+  {
+    title: 'Calvin & Hobbes',
+    author: 'Bill Watterson',
+    kind: 'print',
+  },
+  {
+    title: 'Zen Pencils',
+    author: 'Gavin Aung Than',
+    kind: 'web',
+  },
+  {
+    title: 'Nancy',
+    author: 'Olivia James',
+    kind: 'print',
+  },
+  {
+    title: 'False Knees',
+    author: 'Joshua Barkman',
+    kind: 'web',
+  },
+>>>>>>> e77631c307faf6386750baa6189d0ea9672aad14
 ];
 
 /**
