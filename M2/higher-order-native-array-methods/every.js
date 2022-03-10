@@ -1,8 +1,62 @@
 /**
+<<<<<<< HEAD
  * array.every()  => a higher order native array method
  * return is true if every evaluated expression in the anonymous function is true
  * returns false if any evaluated expresssion is false
  * SideEffects: Are not recommended
+=======
+ * Array.every() --> a higher order native array method
+ * returns true if EVERY evaluated expression in the anonymous function is True
+ * returns false if ANY evaluated expression iin the anonymous function is False
+ *
+ * Side Effects: ARE NOT recommended
+ *
+ * Return values: True or False
+ */
+
+const pens = [
+  {
+    name: 'g2',
+    style: 'ballpoint',
+  },
+  {
+    name: 'claire fontaine',
+    style: 'fountain',
+  },
+  {
+    name: 'pilot',
+    style: 'ballpoint',
+  },
+];
+
+function isEveryPenFountain(arr) {
+  let res = true;
+  for (let pen of arr) {
+    if (pen.style !== 'fountain') {
+      return false;
+    }
+  }
+
+  return res;
+}
+
+console.log('is every pen fountain:', isEveryPenFountain(pens));
+
+console.log(
+  'is every pen fountain (n.a.m):',
+  pens.every(function (pen) {
+    pen.style === 'fountain';
+  }),
+);
+
+console.log(
+  'is every pen fountain (n.a.m with arrow):',
+  pens.every((pen) => pen.style === 'fountain'),
+  // anonymous arrow function behaves the same as the above example with the anonymous function
+);
+
+/**
+>>>>>>> 99a87488657b19459f6a7ed5083299d303c5a5e3
  * 1
  *Return values:
  *
@@ -47,9 +101,14 @@
  * 2
  *
  * The .every() method's callback function has up to three parameters. What are these parameters?
+<<<<<<< HEAD
  *
  *    element,index,array
  * 
+=======
+ */
+
+>>>>>>> 99a87488657b19459f6a7ed5083299d303c5a5e3
 /**
  * 3
  *
