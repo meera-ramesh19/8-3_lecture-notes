@@ -24,12 +24,7 @@
  * through the whole array
  */
 
-
-
-
-
-
-/** 
+/**
  * Array.reduce() --> a higher order native array method
  *
  * Description:
@@ -42,7 +37,6 @@
  * Mutates the original array?: NO
  */
 
-
 /**
  * 1
  *
@@ -53,46 +47,43 @@
 //2 loop
 //3 accumulate
 
-
-function sum(arr){
-  let res=0
-  for(let i=0;i<arr.length;i++){
-    res+=arr[i]
+function sum(arr) {
+  let res = 0;
+  for (let i = 0; i < arr.length; i++) {
+    res += arr[i];
   }
-  return res
+  return res;
 }
-const numberss=[1,2,3,4,7,8,9]
+const numberss = [1, 2, 3, 4, 7, 8, 9];
 //accumulator pattern+higher order function
 //write a higher order function
-function getArrSum(arr,callback){
-  let res=0//accumulator varaible
+function getArrSum(arr, callback) {
+  let res = 0; //accumulator varaible
   //handle the loop
-  for(let ele of arr){
-    res=callback(res,ele)//accumulator is updated
+  for (let ele of arr) {
+    res = callback(res, ele); //accumulator is updated
   }
 
-//return the default value and type
-  return res
+  //return the default value and type
+  return res;
 }
 
-
-
 //pass in a sum callback function
-function getSum(a,b){
+function getSum(a, b) {
   //accumulate
-  return a+b
- }
+  return a + b;
+}
 
-console.log(getArrSum(numbers, getSum))
+console.log(getArrSum(numbers, getSum));
 
 //accumulator pattern+reduce native array method
-numbers.reduce((accumulator,currentValue)=>{//step2 of accumulator
+numbers.reduce((accumulator, currentValue) => {
+  //step2 of accumulator
   //pattern abstracted by native array method definition
   //step3 : accumulation operaion(this is what we handle as devs)
-  return accumulator+currentValue //in the background the accumulator value
+  return accumulator + currentValue; //in the background the accumulator value
   //is updated to equal this result of this expression
-
-},0)
+}, 0);
 
 // accumulator pattern
 
@@ -224,82 +215,80 @@ let sum3 = arr2.reduce(adder, 5);
 
 function stringConcat(arr) {
   // your code here
-   return arr.reduce((acc,val) => acc+val ,  '')
-  
+  return arr.reduce((acc, val) => acc + val, '');
 
-// console.log(stringConcat([1, 2, 3])); // "123"
-/**
- * 5
- *
- * Turn an array of voter objects into a count of how many people voted
- *
- * Note: You don't necessarily have to use reduce for this, so try to think of multiple ways you could solve this.
- */
+  // console.log(stringConcat([1, 2, 3])); // "123"
+  /**
+   * 5
+   *
+   * Turn an array of voter objects into a count of how many people voted
+   *
+   * Note: You don't necessarily have to use reduce for this, so try to think of multiple ways you could solve this.
+   */
 
-function totalVotes(arr) {
-  // your code here
-  return arr.reduce((acc,{voted})=>{
-      return  voted===true? acc+=1 :acc
-  },0)
-}
+  function totalVotes(arr) {
+    // your code here
+    return arr.reduce((acc, { voted }) => {
+      return voted === true ? (acc += 1) : acc;
+    }, 0);
+  }
 
+  const voters = [
+    { name: 'Bob', age: 30, voted: true },
+    { name: 'Jake', age: 32, voted: true },
+    { name: 'Kate', age: 25, voted: false },
+    { name: 'Sam', age: 20, voted: false },
+    { name: 'Phil', age: 21, voted: true },
+    { name: 'Ed', age: 55, voted: true },
+    { name: 'Tami', age: 54, voted: true },
+    { name: 'Mary', age: 31, voted: false },
+    { name: 'Becky', age: 43, voted: false },
+    { name: 'Joey', age: 41, voted: true },
+    { name: 'Jeff', age: 30, voted: true },
+    { name: 'Zack', age: 19, voted: false },
+  ];
+  // console.log(totalVotes(voters)); // 7
 
-const voters = [
-  { name: 'Bob', age: 30, voted: true },
-  { name: 'Jake', age: 32, voted: true },
-  { name: 'Kate', age: 25, voted: false },
-  { name: 'Sam', age: 20, voted: false },
-  { name: 'Phil', age: 21, voted: true },
-  { name: 'Ed', age: 55, voted: true },
-  { name: 'Tami', age: 54, voted: true },
-  { name: 'Mary', age: 31, voted: false },
-  { name: 'Becky', age: 43, voted: false },
-  { name: 'Joey', age: 41, voted: true },
-  { name: 'Jeff', age: 30, voted: true },
-  { name: 'Zack', age: 19, voted: false },
-];
-// console.log(totalVotes(voters)); // 7
+  /**
+   * 6
+   *
+   * Given an array of all your wishlist items, figure out how much it would cost to just buy everything at once
+   */
 
-/**
- * 6
- *
- * Given an array of all your wishlist items, figure out how much it would cost to just buy everything at once
- */
+  function shoppingSpree(arr) {
+    // your code here
+    return arr.reduce((acc, obj) => {
+      return (acc += obj.price);
+    }, 0);
+  }
 
-function shoppingSpree(arr) {
-  // your code here
-   return arr.reduce((acc,obj)=>{
-     return  acc+=obj.price
-   },0)
-}
+  const wishlist = [
+    { title: 'Tesla Model S', price: 90000 },
+    { title: '4 carat diamond ring', price: 45000 },
+    { title: 'Fancy hacky Sack', price: 5 },
+    { title: 'Gold fidgit spinner', price: 2000 },
+    { title: 'A second Tesla Model S', price: 90000 },
+  ];
 
-const wishlist = [
-  { title: 'Tesla Model S', price: 90000 },
-  { title: '4 carat diamond ring', price: 45000 },
-  { title: 'Fancy hacky Sack', price: 5 },
-  { title: 'Gold fidgit spinner', price: 2000 },
-  { title: 'A second Tesla Model S', price: 90000 },
-];
+  // console.log(shoppingSpree(wishlist)); // 227005
+  /**
+   * 7
+   *
+   * Given an array of arrays, flatten them into a single array
+   *
+   * Note: Take a look at Array.concat() to help with this one
+   */
 
-// console.log(shoppingSpree(wishlist)); // 227005
-/**
- * 7
- *
- * Given an array of arrays, flatten them into a single array
- *
- * Note: Take a look at Array.concat() to help with this one
- */
+  function flatten(arr) {
+    // your code here
+    return arr.reduce((a, b) => a.concat(b), []);
+  }
 
-function flatten(arr) {
-  // your code here
-  return arr.reduce((a,b)=>  a.concat(b),[])
-}
+  const arrays = [['1', '2', '3'], [true], [4, 5, 6]];
 
-const arrays = [['1', '2', '3'], [true], [4, 5, 6]];
+  // console.log(flatten(arrays)); // ["1", "2", "3", true, 4, 5, 6];
 
-// console.log(flatten(arrays)); // ["1", "2", "3", true, 4, 5, 6];
-
-/**
+  /**
  * 8
  *
  * Given the array of potential voters above, return an object representing the results of the vote.
@@ -312,73 +301,99 @@ const arrays = [['1', '2', '3'], [true], [4, 5, 6]];
  * Include how many of the potential voters were in the ages 18-25, how many from 26-35, how many from 36-55, and how many of each of those age ranges actually voted. 
  * The resulting object containing this data should have 6 properties. See the example output at the bottom.
  */
-//Mine
-// function voterResults(arr) {
-//   // your code here
-//   //if (acc[cur.name] === undefined || acc[cur.name] === 0) {
-//   let myObj=arr.reduce((acc, cur) => (acc[cur.age] = (acc[cur.age] || 0)+1, acc), {} )
-//   Object.keys(myObj).map((key,index)=>{
-//     let newObj={}
-//   })
-// }
-function voterResults(arr){
-  
-}
-
-function voterResults(arr) {
-  // default return value
-  // {
-  //   numYoungVotes: 0, // call reduce + conditional voted true and && age 18-25
-  //   numYoungPeople: 0, // call reduce + conditional && age 18-25
-  //   numMidVotesPeople: 0, // call reduce + conditional voted true && age 26-35
-  //   numMidsPeople: 0, // call reduce + conditional age 18-25
-  //   numOldVotesPeople: 0, // call reduce + conditional voted true && age 36+
-  //   numOldsPeople: 0, // call reduce + conditional age 36+
+  //Mine
+  // function voterResults(arr) {
+  //   // your code here
+  //   //if (acc[cur.name] === undefined || acc[cur.name] === 0) {
+  //   let myObj=arr.reduce((acc, cur) => (acc[cur.age] = (acc[cur.age] || 0)+1, acc), {} )
+  //   Object.keys(myObj).map((key,index)=>{
+  //     let newObj={}
+  //   })
   // }
-  let numOldPeople = 0;
-  const res = {
-    numYoungVotes: arr.reduce((acc, el) => {
-      // call reduce + conditional voted true and && age 18-25
-      if (el.voted === true && el.age <= 25 && el.age >= 18) {
-        return acc + 1;
+  function voterResults(arr) {
+    // your code here
+    return arr.reduce((acc,el)=>{
+      if(el.age>=18 && el.age <=25){
+        acc.numYoungPeople++;
+        if(el.voted){
+          acc.numYoungVotes++;
+        }
+      }else if(el.age>=26 && el.age <=35){
+        acc.numMidsPeople++;
+        if(el.voted){
+          acc.numMidVotesPeople++;
+        }
+      }else if(el.age>=36 && el.age <=55){
+        acc.numOldsPeople++;
+        if(el.voted){
+          acc.numOldVotesPeople++;
+        }
       }
-      return acc + 0; // explicitly adding 0 is SOMETIMES not necessary, but visually remember this is happening in the background
-    }, 0),
-    numYoungPeople: arr.reduce((acc, el) => {
-      if (el.age <= 25 && el.age >= 18) {
-        return acc + 1;
-      }
-      return acc + 0;
-    }, 0), // expression that evaluate to a certain return value
-    numMidVotes: arr.reduce((acc, el) => {
-      // call reduce + conditional voted true && age 26-35
-      if (el.voted && el.age >= 26 && el.age <= 35) {
-        return acc + 1;
-      }
-      return acc + 0;
-    }, 0),
-    numMidPeople: arr.reduce((acc, el) => {
-      // call reduce + conditional age 26-35
-      if (el.age >= 26 && el.age <= 35) {
-        return acc + 1;
-      }
-      return acc + 0;
-    }, 0),
-    numOldVotes: 0, // call reduce + conditional voted true && age 36+
-    numOldPeople: 0, // call reduce + conditional age 36+
-  };
+  
+      return acc;
+    },{numYoungVotes: 0,
+    numYoungPeople: 0,
+    numMidVotesPeople: 0,
+    numMidsPeople: 0,
+    numOldVotesPeople: 0,
+    numOldsPeople: 0})
+  }
 
-  return res;
+  function voterResults(arr) {
+    // default return value
+    // {
+    //   numYoungVotes: 0, // call reduce + conditional voted true and && age 18-25
+    //   numYoungPeople: 0, // call reduce + conditional && age 18-25
+    //   numMidVotesPeople: 0, // call reduce + conditional voted true && age 26-35
+    //   numMidsPeople: 0, // call reduce + conditional age 18-25
+    //   numOldVotesPeople: 0, // call reduce + conditional voted true && age 36+
+    //   numOldsPeople: 0, // call reduce + conditional age 36+
+    // }
+    let numOldPeople = 0;
+    const rest = {
+      numYoungVotes: arr.reduce((acc, el) => {
+        // call reduce + conditional voted true and && age 18-25
+        if (el.voted === true && el.age <= 25 && el.age >= 18) {
+          return acc + 1;
+        }
+        return acc + 0; // explicitly adding 0 is SOMETIMES not necessary, but visually remember this is happening in the background
+      }, 0),
+      numYoungPeople: arr.reduce((acc, el) => {
+        if (el.age <= 25 && el.age >= 18) {
+          return acc + 1;
+        }
+        return acc + 0;
+      }, 0), // expression that evaluate to a certain return value
+      numMidVotes: arr.reduce((acc, el) => {
+        // call reduce + conditional voted true && age 26-35
+        if (el.voted && el.age >= 26 && el.age <= 35) {
+          return acc + 1;
+        }
+        return acc + 0;
+      }, 0),
+      numMidPeople: arr.reduce((acc, el) => {
+        // call reduce + conditional age 26-35
+        if (el.age >= 26 && el.age <= 35) {
+          return acc + 1;
+        }
+        return acc + 0;
+      }, 0),
+      numOldVotes: 0, // call reduce + conditional voted true && age 36+
+      numOldPeople: 0, // call reduce + conditional age 36+
+    };
+
+    return rest;
+  }
   // your code here
   //default return value
-  let res={ numYoungVotes: 0,
-   numYoungPeople:0,
-   numMidVotesPeople: 0,
-   numMidsPeople: 0,
-   numOldVotesPeople: 0,
-   numOldsPeople: 0 
- }
-
+  let res = {
+    numYoungVotes: 0,
+    numYoungPeople: 0,
+    numMidVotesPeople: 0,
+    numMidsPeople: 0,
+    numOldVotesPeople: 0,
+    numOldsPeople: 0,
+  };
 }
 
 console.log(voterResults(voters)); // Returned value shown below:

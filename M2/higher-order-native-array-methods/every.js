@@ -1,10 +1,9 @@
 /**
-<<<<<<< HEAD
  * array.every()  => a higher order native array method
  * return is true if every evaluated expression in the anonymous function is true
  * returns false if any evaluated expresssion is false
  * SideEffects: Are not recommended
-=======
+
  * Array.every() --> a higher order native array method
  * returns true if EVERY evaluated expression in the anonymous function is True
  * returns false if ANY evaluated expression iin the anonymous function is False

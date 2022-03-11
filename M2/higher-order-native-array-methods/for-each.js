@@ -1,6 +1,6 @@
 //Array.forEach(fn)-forEach is a method (property function parameter)
 //higher order because their is a required function parameter
-//sideEffects:uses side effect to acheive logical goals
+//sideEffects: uses side effect to acheive logical goals
 // Return Values:does not make use of return values
 //cant store the call of Array.forEach in a variable
 //returns undefined

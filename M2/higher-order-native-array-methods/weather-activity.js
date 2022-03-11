@@ -1,4 +1,4 @@
-const weatherData = require("./weather-data.js");
+const weatherData = require('./weather-data.js');
 
 /**
  * Use built in higher order array methods to answer questions about the seven day weather forecast
@@ -55,7 +55,7 @@ console.log(logWeatherSummary(weatherData));
  * 4. Find the first day this week that it might snow
  */
 function findSnowDay(forecasts) {
-  return forecasts.find((forecast) => forecast.precipitation.type === "snow");
+  return forecasts.find((forecast) => forecast.precipitation.type === 'snow');
 }
 console.log(findSnowDay(weatherData));
 /**
@@ -73,13 +73,13 @@ function highWindDays(forecasts) {
 
   const getDayOfWeek = (days) => {
     const daysOfWeek = [
-      "Monday",
-      "Tuesday",
-      " Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday",
+      'Monday',
+      'Tuesday',
+      ' Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+      'Sunday',
     ];
     // const daysOfWeek = [
     //     "Sunday",
@@ -93,7 +93,7 @@ function highWindDays(forecasts) {
     //   ];
     //   const dates=new Date(days.date)
     //   return daysOfWeek[getDay(dates)]
-    const daynum = Number(days.date.split("/")[1]) % 7;
+    const daynum = Number(days.date.split('/')[1]) % 7;
     return daysOfWeek[daynum];
   };
 
@@ -134,7 +134,22 @@ console.log(logSunnyDayLows(weatherData));
  * findDayByTemp(weatherData, 51) // => "3/11/2022"
  */
 function findDayByTemp(forecasts, temperature) {
-  return forecasts.find((forecast) => forecast.highTemp > temperature);
+  const daysOfWeek = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    ' Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+  let finder = forecasts.find(
+    (forecast) =>
+      forecast.highTemp > temperature && forecast.lowTemp < temperature
+  );
+  const weather = new Date(finder.date);
+  let result = weather.getDay();
+  return daysOfWeek[result];
 }
 
 console.log(findDayByTemp(weatherData, 51));
