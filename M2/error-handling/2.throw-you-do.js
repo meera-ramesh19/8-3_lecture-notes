@@ -2,17 +2,24 @@
 // Select a driver to share their screen.
 
 function guestIsValid(guest) {
-  if (!guest.name || !guest.email) {
-    return "Guest is missing fields.";
+//   if (!guest.name || !guest.email) {
+
+//   throw 'Guest is missing name.';
+// }
+  if (!guest.name && !guest.email) {
+    throw 'The following fields are required: email,name';
   }
 
+  if (!guest.name) {
+    throw 'The following fields are required: name';
+  }
   return true;
 }
-
-guestIsValid({ name: "Myra", email: "myra@pursuit.org" });
-guestIsValid({ name: "Myra" });
-guestIsValid({ email: "myra@pursuit.org" });
-guestIsValid({});
+console.log(guestIsValid({ name: 'Myra', email: 'myra@pursuit.org' }));
+console.log(guestIsValid({ name: 'Myra' }));
+console.log(guestIsValid({}));
+console.log(guestIsValid({ email: 'myra@pursuit.org' }));
+ 
 
 /**  1. Update guestIsValid so that instead of returning a string, it throws an error if the keys are missing. */
 

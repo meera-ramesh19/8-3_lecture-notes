@@ -18,19 +18,19 @@ function checkInAllGuests(guests) {
 }
 
 const guests = [
-  { id: 1, name: "Isaac Price", email: "iprice@gmail.com" },
-  { id: 2, name: "Angelica Russo", email: "angie.russo@gmail.com" },
-  { id: 3, email: "chloe.barker@gmail.com" },
+  { id: 1, name: 'Isaac Price', email: 'iprice@gmail.com' },
+  { id: 2, name: 'Angelica Russo', email: 'angie.russo@gmail.com' },
+  { id: 3, email: 'chloe.barker@gmail.com' },
 ];
 
 try {
-  console.log("Checking in all guests...");
+  console.log('Checking in all guests...');
   for (let guest of guests) {
     guestHasName(guest);
   }
 
   checkInAllGuests(guests);
 } catch (error) {
-  console.log("Guest check-in failed!");
+  console.log('Guest check-in failed!');
   console.log(error);
 }
