@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to Forms</title>
+</head>
+<body>
+   <div>
+     <h1>Independent Study Application</h1>
+     <small>Required Fields*</small>
+   </div>
+    <form id="">
+        <h3>Program Location</h3>
+        <label for="location">
+        <input type="radio" id="us" name="location" value="us" required/>
+        US</label>
+      <div>
+        <label for="location">
+         <input type="radio" id="abroad" name="location" value="abroad" required/>
+       Abroad</label>
+      </div>
+      <div>
+          <h3>Personal information</h3>
+          <div>
+          <label for="first-name">First*</label>
+          <input type="text" placeholder="enter first name" id="first-name" required/>
+          </div>
+          <div>
+          <label for="last-name">Last*</label>
+          <input type="text" placeholder="enter last name" id="last-name" required/>
+        </div>
+        <div>
+          <label for="email">Email*</label>
+          <input type="email" placeholder="enter Email" id="email" required/>
+        </div>
+      </div>
+      <div>
+        <h3>Program information</h3>
+        <div>
+        <label for="program">Type</label>
+        <select name="program" id="type">
+            <option value="none" default selected hidden>Enter an option</option>
+            <option value="BA">Bachelor of Arts</option>
+            <option value="Bsc">Bachelor of Science</option>
+            <option value="abroad">SemseterAbroad</option>
+         </select> 
+        </div>
+        <div>
+        <label for="length">Length*</label>
+        <input type="text" placeholder="enter last name" id="length" required/>
+      </div>
+      <div>
+        <label for="dates">Date*</label>
+        <input type="date" placeholder="enter date" id="dates" required/>
+      </div>
+    </div>
+
+      <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
