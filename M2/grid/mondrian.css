@@ -6,8 +6,12 @@ body {
 
 .wrapper {
   display: grid;
+<<<<<<< HEAD
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: minmax(120px, auto);
+=======
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+>>>>>>> e0e02b8db69e3fbd9820bc64dbac2ddb80b09403
   justify-content: center;
   grid-gap: 20px 10px;
   
