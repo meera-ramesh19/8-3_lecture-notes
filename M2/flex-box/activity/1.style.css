@@ -1,4 +1,14 @@
 /* Add Styles Below */
 .flex-container {
   height: 100%;
+  display:flex;
+  justify-content: center;
+  /* align-items: space-evenly; */
+  flex-wrap:wrap;
+  gap:10px 100px;
+  
+}
+.flex-item  {
+   padding:20px 0;
+   flex:0 1 25%;
 }
