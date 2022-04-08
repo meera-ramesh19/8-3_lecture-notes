@@ -1,17 +1,15 @@
 let count = 0;
 const span = document.querySelector('h1 span');
-const section=document.querySelector('section')
-console.log(section)
+const buttons = document.querySelectorAll('section');
+console.log(buttons);
+
+const getCount = (e) => {
+  console.log('target', e.target);
+  let count = parseInt(span.textContent) + 1;
+  span.textContent = count.toString();
+};
 
 
-const getCount =() =>{
- const buttons =document.querySelectorAll('button')
- buttons.forEach((button)=>{
-     button.addEventListener('click',()=>{
-
-     })
-
- })
-}
-
-   section.addEventListener('click', getCount)
+buttons.forEach((button) => {
+  button.addEventListener('click', getCount);
+});

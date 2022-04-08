@@ -3,16 +3,10 @@
 */
 // accessing all the li in the html
 const lis = document.querySelectorAll('li');
-<<<<<<< HEAD
+
 console.log(lis);
-const generateLiHandler = () => {
-  const ol = document.querySelector('ol');
-  const newLi = document.createElement('li');
-  newLi.textContent = 'Click me to make more!';
-  newLi.addEventListener('click', generateLiHandler);
-  ol.append(newLi);
-};
-=======
+
+
 
 const generateLiHandler = () => {
   // access the order list
@@ -28,7 +22,7 @@ const generateLiHandler = () => {
 };
 
 // loop through the li
->>>>>>> 9340daa8869ad179f701009d67bd3e3b4df8b690
+
 for (let li of lis) {
   li.addEventListener('click', generateLiHandler);
 }

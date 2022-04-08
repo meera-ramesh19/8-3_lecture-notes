@@ -1,11 +1,24 @@
-const increment = document.querySelector('.increment');
-increment.addEventListener('click', () => {
-  const hearts = document.querySelector('.hearts');
-  hearts.textContent += '❤';
-});
+const articles = document.querySelectorAll('article p.likes');
 
-const decrement = document.querySelector('.decrement');
-decrement.addEventListener('click', () => {
-  const hearts = document.querySelector('.hearts');
-  hearts.textContent = hearts.textContent.slice(0, -1);
-});
+for (let i = 0; i < articles.length; i++) {
+  const increment = articles[i].querySelector('.increment');
+  const decrement = articles[i].querySelector('.decrement');
+
+  increment.addEventListener('click', (e) => {
+    const hearts = articles[i].querySelector('.hearts');
+    const heartsLen = hearts.textContent.length;
+    if (heartsLen >= 1 && heartsLen <= 2) {
+      hearts.textContent += '❤';
+    }
+  });
+
+  decrement.addEventListener('click', (e) => {
+    const hearts = articles[i].querySelector('.hearts');
+    const heartsLen = hearts.textContent.length;
+    if (heartsLen < 1) {
+      hearts.textContent = '❤';
+    } else {
+      hearts.textContent -= '❤';
+    }
+  });
+}

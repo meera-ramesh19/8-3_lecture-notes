@@ -8,6 +8,6 @@ const printEventDetails = (e) => {
   console.log('target text content: ', target.textContent);
 };
 
-for (heading of headings) {
+for (let heading of headings) {
   heading.addEventListener('mouseover', printEventDetails);
 }
