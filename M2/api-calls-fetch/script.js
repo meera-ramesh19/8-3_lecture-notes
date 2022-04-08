@@ -55,6 +55,7 @@ button.addEventListener('click', () => {
   const people = document.querySelector('.people');
   people.innerHTML = '';
 
+
   // Fetch data from base url using fetch and promises
   fetch(BASE_URL)
     .then((res) => {
@@ -143,3 +144,14 @@ button.addEventListener('click', () => {
 //        console.log(err)
 //    });
 //   });
+
+
+  // Fetch data from base url using fetch and promises
+  fetch(BASE_URL)
+    .then((res) => {
+      return res.json();
+    })
+    .then(displayUser)
+    .catch(displayError);
+});
+
