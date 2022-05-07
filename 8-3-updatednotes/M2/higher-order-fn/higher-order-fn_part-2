@@ -1,0 +1,174 @@
+//Is what a higher order function?
+//returns function
+//accepts function as parameter
+//how anonymous function useful in higher order function
+//common programming pattern,endlessly useful for devs
+//HELps in writing declarative code
+//Why do HIGHER ORDER exist?
+//    useful for passing information around in a dynamic/modular way
+// ex. typical function
+function iscold(temp, coldTemp) {
+  if (temp > coldTemp) {
+    return false;
+  }
+  return true;
+}
+
+// console.log(iscold(60,15))
+const degrees60F = iscold(60, 50);
+
+console.log(degrees60F);
+//ex.higher order function
+
+function outer() {
+  function inner() {
+    return "I'm the inner function!";
+  }
+  // returning a function without explicitly calling it
+  //does not call the function but just returns the function
+  return inner;
+}
+console.log(outer()); //returns  :[Funciton:inner]
+//Funciton is the type of the return value
+//inner is the name of the return value
+
+//store the outer function's return value in a variable
+const outerReturnVal = outer();
+//store the inner functions' return value in a variable
+//outerReturnVal has the value as function inner but if i invoke using () then the inner function is inovked
+const innerReturnVal = outerReturnVal();
+
+//compare both the return values
+console.log(outerReturnVal);
+console.log(innerReturnVal);
+
+//higher order funciton that accepts a fn as a parameter?
+
+function describeColdWeather(fn) {
+  const message = "It's cold weather oustide";
+  return fn(message);
+}
+function describeHotWeather(fn) {
+  const message = "It's hot weather oustide";
+  return fn(message);
+}
+// function describeWeather(str){
+//     console.log(`todays weather is : ${str}`)
+// }
+
+const describeWeather = (str) => {
+  return `todays weather is : ${str}`;
+};
+
+console.log(describeColdWeather(describeWeather));
+console.log(describeHotWeather(describeWeather));
+
+function describeColdWeather(fn, forecast) {
+  const message = "It's cold weather oustide";
+  return fn(message, forecast);
+}
+
+function describeHotWeather(fn, forecast) {
+  const message = "It's hot weather oustide";
+  return fn(message, forecast);
+}
+
+const describeWeather = (currentWeather, forecast) => {
+  return `todays weather is : ${currentWeather} | ${forecast}`;
+};
+
+const tomorrowWeather = "sunny and 90 degress";
+
+console.log(describeColdWeather(describeWeather, tomorrowWeather));
+console.log(describeHotWeather(describeWeather, tomorrowWeather));
+
+//Anonymous funcitons are functions without a name
+
+//ex.higher order function
+
+function outerAnon() {
+  //return the function right here
+  return function () {
+    return "I'm the inner function!";
+  };
+}
+
+console.log(outerAnon()); //returns : [Funciton (anoanymous)]
+
+function describeRainyWeather(fn, forecast) {
+  const message = "It's rainy weather oustide";
+  return fn(message, forecast);
+}
+
+console.log(
+  describeRainyWeather(function (currentWeather, forecast) {
+    return `todays weather is : ${currentWeather} | ${forecast}`;
+  }, tomorrowWeather)
+);
+
+//if to convert fahrenheit to celsius
+function describeRainyWeather(fn, forecast, tomTempF) {
+  const message = "It's rainy weather oustide";
+  return fn(message, forecast, tomTempF);
+}
+
+const tomorrowTempF = 90;
+
+console.log(
+  describeRainyWeather(
+    function (currentWeather, forecast, tomTempF) {
+      let celsiusTomTemp = (tomTempF - 32) * 0.5556;
+      return `todays weather is : ${currentWeather} | ${forecast} and  ${celsiusTomTemp}degrees celsius`;
+    },
+    tomorrowWeather,
+    tomorrowTempF
+  )
+);
+
+
+//calulators Example
+//a is a number
+// b is a number
+// fn is a function
+// the fn return result is also a number
+//return res is a number
+const calculatorValidator = (a,b,fn) =>{
+ console.log(fn)
+ let res;
+ if (typeof a === 'number' && typeof b==='number') {
+    res=fn(a,b)
+ }else{
+     return 'ERROR! a and b must be a number'
+ }
+ 
+ if(typeof res !== 'number'){
+    return 'ERROr:calculator functions must return a number '
+  }
+ return res;
+};
+
+//returns the exponent of a 
+const exponent = (a,b) => {
+    console.log('i just got called :i"m the exponent function!')
+    return Math.pow(a,b)
+}
+
+console.log(calculatorValidator(39,4,exponent))
+console.log(calculatorValidator('abc','moon',exponent))
+console.log(calculatorValidator(
+    3,
+    4,
+    function(a,b){
+        console.log('I just called an anonymous function')
+        return Math.pow(a *  b, 2)
+    }
+))
+const exponential=calculatorValidator(
+    3,
+    4,
+    function(a,b){
+        console.log('I just called an anonymous function')
+        return Math.pow(a , b)
+    })
+
+console.log(exponential)

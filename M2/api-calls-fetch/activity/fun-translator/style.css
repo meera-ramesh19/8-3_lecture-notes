@@ -50,6 +50,7 @@ main {
   margin: 25px auto;
   text-align: center;
   width: 80%;
+  
 }
 
 form {
@@ -82,4 +83,25 @@ form button {
 
 .error .message {
   color: #ff6459;
+}
+body{
+  background-color: darkgrey;
+}
+main p{
+  font-size:4rem;
+  font-family:'Times New Roman', Times, serif;
+  -webkit-text-fill-color: white;
+  font-weight:800;
+}
+.main{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  max-width:1200px;
+  width:100%;
+}
+
+#source, #final{
+  width:40rem;
+  margin:3rem auto;
 }

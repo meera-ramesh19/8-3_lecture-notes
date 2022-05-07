@@ -16,7 +16,6 @@ const colors = {
 };
 const BASE_URL = 'https://pokeapi.co/api/v2/pokemon';
 
-<<<<<<< HEAD
 const poke_container = document.querySelector('.pokemon');
 const pokeTypes = Object.keys(colors);
 
@@ -71,8 +70,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     form.reset();
   });
 });
-=======
-const form = document.querySelector('form');
+
+// const form = document.querySelector('form');
 
 // form.addEventListener('submit', (event) => {
 //   event.preventDefault();
@@ -84,25 +83,25 @@ const form = document.querySelector('form');
 //
 //
 //
-// These notes are for reference
-// The full solution is commented out below on line 65
-// fetch api data
-fetch(BASE_URL + '/8')
-  // get json from the response body
-  .then((response) => {
-    return response.json();
-  })
-  // process json to dom updates
-  .then((json) => {
-    console.log(json);
-    // add a helper function to process the dom update
-  })
-  // catch errors
-  .catch((err) => {
-    console.log(err);
-    // add a helper function to process the dom update error msg
-  });
-//
+// // These notes are for reference
+// // The full solution is commented out below on line 65
+// // fetch api data
+// fetch(BASE_URL + '/8')
+//   // get json from the response body
+//   .then((response) => {
+//     return response.json();
+//   })
+//   // process json to dom updates
+//   .then((json) => {
+//     console.log(json);
+//     // add a helper function to process the dom update
+//   })
+//   // catch errors
+//   .catch((err) => {
+//     console.log(err);
+//     // add a helper function to process the dom update error msg
+//   });
+// //
 //
 //
 //
@@ -167,4 +166,3 @@ fetch(BASE_URL + '/8')
 
 //   return section;
 // }
->>>>>>> 0d3d0506720d7ae5c5afcea1c6f3e6c7f0ea4457

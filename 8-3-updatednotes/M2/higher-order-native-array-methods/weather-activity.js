@@ -1,4 +1,4 @@
-const weatherData = require('./weather-data.js');
+const weatherData = require("./weather-data.js");
 
 /**
  * Use built in higher order array methods to answer questions about the seven day weather forecast
@@ -55,7 +55,7 @@ console.log(logWeatherSummary(weatherData));
  * 4. Find the first day this week that it might snow
  */
 function findSnowDay(forecasts) {
-  return forecasts.find((forecast) => forecast.precipitation.type === 'snow');
+  return forecasts.find((forecast) => forecast.precipitation.type === "snow");
 }
 console.log(findSnowDay(weatherData));
 /**
@@ -73,13 +73,13 @@ function highWindDays(forecasts) {
 
   const getDayOfWeek = (days) => {
     const daysOfWeek = [
-      'Monday',
-      'Tuesday',
-      ' Wednesday',
-      'Thursday',
-      'Friday',
-      'Saturday',
-      'Sunday',
+      "Monday",
+      "Tuesday",
+      " Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
     ];
     // const daysOfWeek = [
     //     "Sunday",
@@ -93,7 +93,7 @@ function highWindDays(forecasts) {
     //   ];
     //   const dates=new Date(days.date)
     //   return daysOfWeek[getDay(dates)]
-    const daynum = Number(days.date.split('/')[1]) % 7;
+    const daynum = Number(days.date.split("/")[1]) % 7;
     return daysOfWeek[daynum];
   };
 
@@ -133,45 +133,9 @@ console.log(logSunnyDayLows(weatherData));
  *
  * findDayByTemp(weatherData, 51) // => "3/11/2022"
  */
-
 function findDayByTemp(forecasts, temperature) {
-  const daysOfWeek = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    ' Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
-  let finder = forecasts.find(
-    (forecast) =>
-      forecast.highTemp > temperature && forecast.lowTemp < temperature
-  );
-  const weather = new Date(finder.date);
-  let result = weather.getDay();
-  return daysOfWeek[result];
+  return forecasts.find((forecast) => forecast.highTemp > temperature);
 }
 
 console.log(findDayByTemp(weatherData, 51));
 //exit the debugger
-
-function findDayByTemp(forecast, temperature) {
-  // find the first weather data object with the given temperature
-  // GREAT use case for the array.find()!!
-  const firstWeatherObj = forecast.find((element) => {
-    return temperature >= element.lowTemp && temperature <= element.highTemp;
-  }); // temperature is between high and low
-  // get the elements date
-  const firstWeatherDate = firstWeatherObj.date;
-  // convert it to a Date object
-  const firstWeatherDay = new Date(firstWeatherDate);
-  const firstWeatherDayIndex = firstWeatherDay.getDay();
-  // using the Date object, calculate the day of the week
-  const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-  return weekDays[firstWeatherDayIndex];
-}
-
-console.log(findDayByTemp(weatherData, 34));
-

@@ -153,5 +153,5 @@ button.addEventListener('click', () => {
     })
     .then(displayUser)
     .catch(displayError);
-});
+
 
